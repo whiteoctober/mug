@@ -80,31 +80,36 @@
    //    })
 	</script>
 	<style type="text/css" media="screen">
-	
-	/* These need to be re done */
-	 #mug{
-		
-	   margin:3em auto;
-     border:1em solid #08f;
- 	   border-top:none;
 
-			position:absolute;
-			height:300px;
-			width:300px;
-			left:50%;
-			top:50%;
-			margin-left:-150px;
-			margin-top:-150px;
-			z-index:100;
-	 }
-	 .coffee{
-	   background-color:#B68449;
-	   height:90%;
-	   width:100%;
-     vertical-align:bottom;
-	   bottom:0;
-	   position:absolute;
-	 }
+	#mug{
+		width: 287px;
+		height: 439px;
+		position:absolute;
+		top:50%;
+		margin-top:-200px;
+		left:50%;
+		margin-left:-143px;
+		
+		vertical-align:bottom;
+	}
+	.mask {
+		background: url('img/mug.png') no-repeat scroll top left;
+		width:505px;
+		height: 505px;
+		position:absolute;
+		z-index:100;
+	}
+	.coffee {
+		background: url('img/coffee.png') no-repeat scroll center top;
+		height:380px;
+		width:290px;
+		left:0;
+		display:inline-block;
+		bottom:0;
+		vertical-align:bottom;
+		position:absolute;
+		bottom:0;
+	}
 	
 	
 	body{
@@ -118,6 +123,7 @@
 		position:absolute;
 		width:90%;
 		margin:0 5%;
+		z-index:150;
 	}
 	header{
 		top:0;
@@ -172,6 +178,7 @@
 	<h1>Thanks for coming to the conference!</h1>
 </header>
   <div id="mug">
+		<div class="mask"></div>
     <div class="coffee"></div>
   </div>
 <footer>
@@ -179,7 +186,7 @@
 		Hear about White October jobs first with our careers bulletin <a href="http://eepurl.com/dex8-">http://eepurl.com/dex8-</a>
 	</p>
 	<p class="links">
-		<a class="web" href="http://www.whiteoctober.co.uk/"><img src="img/wo.png" alt="White October"></a>
+		<a class="web" href="http://www.whiteoctober.co.uk/"><img src="img/wo2.png" alt="White October"></a>
 		<a class="mail" href="mailto:info@whiteoctober.co.uk"><img src="img/mail.png" alt="info@whiteoctober.co.uk"></a>
 		<a class="twitter" href="https://twitter.com/#!/whiteoctober"><img src="img/tw.png" alt="@whiteoctober"></a>
 	</p>
