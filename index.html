@@ -153,20 +153,28 @@
           });
         //      
      
-     var curr = {x: 0, y: 0, angle: 0};
-     var i = 0;
-     var mugAngle = 0;
+     
+     
      var hasRotated = function(a, b) {
         return a.angle > b.angle && a.angle - b.angle < Math.PI/2 && a.angle - b.angle > Math.PI/16;
      }
      
+     var mugAngle = 0;
+     var curr = {x: 0, y: 0, angle: 0};
+     var direction = 0;
+     
      $(document).on('mousemove', function(e) {
-       if (i++ % 2 > 0) return;
        var next = {x: e.clientX, y: e.clientY};
        next.angle = Math.atan2(curr.x - next.x, curr.y - next.y);
        
-       if (hasRotated(curr, next)) mugAngle++;
-       if (hasRotated(next, curr)) mugAngle--;
+       if (hasRotated(curr, next)) {
+         if (direction < 0) direction = 0;
+         if (direction++ > 5) mugAngle++;
+       }
+       if (hasRotated(next, curr)) {
+         if (direction > 0) direction = 0;
+         if (direction-- < -5) mugAngle--;
+       }
        mugAngle = Math.min(Math.max(mugAngle, 0), 60);
        var mugevent = jQuery.Event("mugorientation");
        mugevent.angle = 1 - mugAngle/60;
@@ -182,6 +190,15 @@
        // window.addEventListener("deviceorientation", function(e){
        //      $('#l').text(i++)
        //    })
+       
+    $(document).ready(function () {
+      function reorient(e) {
+        var portrait = (window.orientation % 180 == 0);
+        $("body > div").css("-webkit-transform", portrait ? "" : (portrait > 0 ? "rotate(90deg)" : "rotate(-90deg)"));
+      }
+      window.onorientationchange = reorient;
+      //window.setTimeout(reorient, 0);
+    });
 	</script>
 	
 </head>
