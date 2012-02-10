@@ -89,7 +89,7 @@ section#content wrapper {
 }
 
 p {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 a {
@@ -113,7 +113,7 @@ img {
 .popup {
     display: none;
     position: absolute;
-    top: 250px;
+    top: 150px;
     left: 150px;
     width: 450px;
     background: white;
